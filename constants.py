@@ -15,8 +15,11 @@ S_SPRITE_WIDTH = S_SW = SW * SF
 SPRITE_HEIGHT = SH = 23 # standard sprite image heigh
 S_SPRITE_HEIGHT = S_SH = SH * SF
 
-SCREEN_WIDTH = W = S_BW * 20   # Screen dimensions are a set number of tiles
-SCREEN_HEIGHT = H = S_BW * 13
+# CONSTRAINTS: these should both be odd number, for centering player
+SCREEN_TILE_COLS = 21 # Number of tiles fit horizontally across screen
+SCREEN_TILE_ROWS = 13 # Number of tiles fit vertically across screen
+SCREEN_WIDTH = W = S_BW * SCREEN_TILE_COLS   # Width of screen in pixels
+SCREEN_HEIGHT = H = S_BW * SCREEN_TILE_ROWS  # Height of screen in pixels
 
 
 ##################### SPRITES #####################

@@ -7,11 +7,19 @@ from game.utilities.spriteSheetFunctions import SpriteSheet
 from game.entities.imageSpriteComponent import ImageSpriteComponent
 
 class EntityBase(pygame.sprite.Sprite):
+	""" All in game entities should use this base class,
+		which initializes to a null image sprite for game
+		logic, and references as an actual sprite for visuals.
+		
+		The in game coordinates for the sprite should be
+		(self.rect.x, self.rect.y)
+	"""
     ID = 'base' # all entities should use an ID
 
     visual = None # ImageSpriteComponent
 
     def __init__(self, x, y):
+    	""" sets up actual sprite box, does not load frames """
 
         pygame.sprite.Sprite.__init__(self)
         nullImageSheet = SpriteSheet('content/null-tile.png')
@@ -48,6 +56,8 @@ class EntityBase(pygame.sprite.Sprite):
                     (frame[4] * constants.SCALE_FACTOR, frame[5] * constants.SCALE_FACTOR)),
                 frame[4], frame[5])
 
-    def kill(self): # override: to kill self, and visual component
+    def kill(self):
+    	""" this overrides the sprite kill function, to also call 'kill'
+    		on the visual component """
         pygame.sprite.Sprite.kill(self)
         self.visual.kill()
