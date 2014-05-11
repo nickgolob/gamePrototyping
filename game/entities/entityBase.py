@@ -45,6 +45,8 @@ class EntityBase(pygame.sprite.Sprite):
             - ry, rx - reference coordinates for display relative to sprite image
                 (corresponding to top left corner point of actual sprite)
             - key - value to reference sprite by
+            
+            (tuples can be a generator function)
         """
 
         sprite_sheet = SpriteSheet(sheetFile)

@@ -40,3 +40,10 @@ PLAYER_DEATH_TIME = 250 # how many frames to display death animation
 BADDY_TRANSIT_TIME = BTF = 15 # how many frames it takes to transition to an adjacent tile
 BADDY_TRANSIT_COOL_TIME = BTCT = 4
 BADDY_DEATH_TIME = 80
+
+##################### DIRECTIONS #####################
+UP = 'Up'
+RIGHT = 'Right'
+DOWN = 'Down'
+LEFT = 'Left'
+
