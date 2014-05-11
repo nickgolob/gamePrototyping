@@ -1,19 +1,20 @@
 import pygame
-
 import constants
 
 class SpriteSheet(object):
     """ Class used to grab images out of a sprite sheet. """
-    # This points to our sprite sheet image
-    sprite_sheet = None
+    
+    """ ------------------------ Attributes: -------------------------- """
+    sprite_sheet = None # This points to our sprite sheet image
 
+	""" ------------------------ Constructors: ------------------------ """
     def __init__(self, fileName):
         """ Constructor. Pass in the file name of the sprite sheet. """
 
         # Load the sprite sheet.
         self.sprite_sheet = pygame.image.load(fileName).convert()
 
-
+	""" ------------------------ Methods: ----------------------------- """
     def get_image(self, x, y, width, height):
         """ Grab a single image out of a larger spritesheet
             Pass in the x, y location of the sprite

@@ -1,10 +1,7 @@
-
 import pygame
-
 import constants
-
-from game.utilities.spriteSheetFunctions import SpriteSheet
-from game.entities.imageSpriteComponent import ImageSpriteComponent
+import game.utilities.spriteSheetFunctions
+import game.entities.imageSpriteComponent
 
 class EntityBase(pygame.sprite.Sprite):
 	""" All in game entities should use this base class,
@@ -16,22 +13,24 @@ class EntityBase(pygame.sprite.Sprite):
 	"""
     ID = 'base' # all entities should use an ID
 
+	""" ------------------------ Attributes: -------------------------- """
     visual = None # ImageSpriteComponent
 
+	""" ------------------------ Constructors: ------------------------ """
     def __init__(self, x, y):
     	""" sets up actual sprite box, does not load frames """
-
         pygame.sprite.Sprite.__init__(self)
-        nullImageSheet = SpriteSheet('content/null-tile.png')
+        nullImageSheet = game.utilities.spriteSheetFunctions.SpriteSheet(
+        	'content/null-tile.png')
         self.image = pygame.transform.scale(nullImageSheet.get_image(
             0, 0, constants.BOX_WIDTH, constants.BOX_WIDTH),
             (constants.S_BOX_WIDTH, constants.S_BOX_WIDTH))
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.visual = game.entities.imageSpriteComponent.ImageSpriteComponent(self)
 
-        self.visual = ImageSpriteComponent(self)
-
+	""" ------------------------ Methods: ----------------------------- """
     def get_frames(self, sheetFile, *frameTuples):
         """ Takes a file containing a sprite sheet (sheetFile) and a list
             of tuples (infoList) designating sprites from the sprite sheet

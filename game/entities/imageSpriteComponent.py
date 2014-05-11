@@ -1,7 +1,4 @@
-
-
 import pygame
-
 import constants
 
 class ImageSpriteComponent(pygame.sprite.DirtySprite):
@@ -17,11 +14,13 @@ class ImageSpriteComponent(pygame.sprite.DirtySprite):
         - key is the name of the image """
     frames = {}
 
+	""" ------------------------ Attributes: -------------------------- """
     actualRef = None # reference to actual representation, now the parent sprite
     cameraRef = None # reference the camera for relative coordinates
     subLayer = 0 # sub layer ordering (between 0 and NUM_SUB_LAYERS)
     currentFrame = None # track dictionary key of current frame
 
+	""" ------------------------ Constructors: ------------------------ """
     def __init__(self, actualRef, cameraRef):
         pygame.sprite.DirtySprite.__init__(self)
         self.actualRef = actualRef
@@ -29,7 +28,8 @@ class ImageSpriteComponent(pygame.sprite.DirtySprite):
         self.subLayer = 0
         if actualRef.ID == 'player': # @@@ this may need to be moved
             self.subLayer = 1
-
+	
+	""" ------------------------ Methods: ----------------------------- """
     def load_frame(self, key, frameTuple):
         self.frames[key] = frameTuple
 

@@ -1,7 +1,4 @@
-__author__ = 'Nicky'
-
 import pygame
-
 import constants
 
 def main():
